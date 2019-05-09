@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6Kj-xa-vic">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Timer-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="TimerViewController" customModule="CubeTimer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" F2  B2  D2  F'  U  R  F2  R'  L2  F2  D'  L'  B  R2  U'  L  B  U  F2  L2  F  U'  D'" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgd-qh-CEq">
+                                <rect key="frame" x="10" y="70" width="300" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="LzY-pJ-NX4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00.000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LLY-TT-wwt">
+                                <rect key="frame" x="0.0" y="215" width="320" height="304"/>
+                                <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="70"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="LLY-TT-wwt" secondAttribute="bottom" id="BBS-hc-pZ7"/>
+                            <constraint firstItem="LLY-TT-wwt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="D4B-pb-gbv"/>
+                            <constraint firstItem="kgd-qh-CEq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="MEg-yK-EZM"/>
+                            <constraint firstItem="kgd-qh-CEq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="XCs-iB-Nrx"/>
+                            <constraint firstItem="LLY-TT-wwt" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="kVp-bK-Rck"/>
+                            <constraint firstItem="LLY-TT-wwt" firstAttribute="top" secondItem="kgd-qh-CEq" secondAttribute="bottom" constant="65" id="lwC-ED-FWI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kgd-qh-CEq" secondAttribute="trailing" constant="10" id="rhS-p3-bgV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Kkd-Pk-XbI" appends="YES" id="dQg-Hh-eQX"/>
+                        </connections>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Timer" image="stopwatch" id="SYz-QL-6mr"/>
+                    <connections>
+                        <outlet property="scrambleLabel" destination="kgd-qh-CEq" id="E1N-Di-XMF"/>
+                        <outlet property="timerLabel" destination="LLY-TT-wwt" id="Alh-lU-MXl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Kkd-Pk-XbI"/>
+            </objects>
+            <point key="canvasLocation" x="-1849" y="426"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="4fC-0g-qc4">
+            <objects>
+                <tabBarController id="6Kj-xa-vic" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="zgh-kD-5Gy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="gnX-Qd-3Aa"/>
+                        <segue destination="UJr-9R-xgt" kind="relationship" relationship="viewControllers" id="7R0-C9-SVT"/>
+                        <segue destination="yap-te-hLj" kind="relationship" relationship="viewControllers" id="AYi-3H-hhm"/>
+                        <segue destination="5OG-52-dQg" kind="relationship" relationship="viewControllers" id="rSU-hf-3IF"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xnf-wG-rgJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-420" y="-355"/>
+        </scene>
+        <!--Stats-->
+        <scene sceneID="0mI-uZ-1vT">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qxI-jH-Kr9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="UJr-9R-xgt" customClass="StatsViewController" customModule="CubeTimer" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Stats" image="bar-chart" id="ikM-bj-baM"/>
+                    <size key="freeformSize" width="608" height="568"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-890.625" y="1153.5211267605634"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="n27-kF-ckg">
+            <objects>
+                <viewController id="yap-te-hLj" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oVC-Jr-zQc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="4JU-7H-ARQ"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings" id="zOP-5u-Pse"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XYR-rY-GjA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="99" y="426"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="BnT-HM-ZuN">
+            <objects>
+                <viewController id="5OG-52-dQg" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JDq-7y-JMw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="qxI-MC-Us2"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Profile" image="profile" id="oJ0-Dh-gOE"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z36-JX-oQf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="979" y="426"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bar-chart" width="30" height="30"/>
+        <image name="profile" width="32" height="32"/>
+        <image name="settings" width="32" height="32"/>
+        <image name="stopwatch" width="32" height="32"/>
+    </resources>
+</document>
