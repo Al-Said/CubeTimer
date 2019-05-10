@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>917749159826-sn91mro6fhvjnfvgqj3pmfsluq13bb37.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.917749159826-sn91mro6fhvjnfvgqj3pmfsluq13bb37</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBR3TxNcowf5DYIckzkNm70CHwkKq0ubm0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>917749159826</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.funWork.CubeTimer</string>
+	<key>PROJECT_ID</key>
+	<string>cube-timer-14a08</string>
+	<key>STORAGE_BUCKET</key>
+	<string>cube-timer-14a08.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<true/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:917749159826:ios:d92009f15cc8b857</string>
+	<key>DATABASE_URL</key>
+	<string>https://cube-timer-14a08.firebaseio.com</string>
+</dict>
+</plist>
