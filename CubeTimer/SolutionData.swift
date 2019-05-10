@@ -14,6 +14,7 @@ struct SolutionData {
     var duration: Double
     var created: Double
     var session: Int
+    var showAlgorithm: Bool
 }
 
 

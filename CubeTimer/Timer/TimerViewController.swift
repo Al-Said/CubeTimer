@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class TimerViewController: UIViewController {
+class TimerViewController: CubeTimerBaseViewController {
 
     @IBOutlet weak var scrambleLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
@@ -32,27 +32,8 @@ class TimerViewController: UIViewController {
   
     @objc func updateTime() {
         let currentTime = NSDate.timeIntervalSinceReferenceDate
-        var elapsedTime: TimeInterval = currentTime - startTime
-        
-        let minutes = Int(elapsedTime/60.0)
-        elapsedTime -= TimeInterval(minutes) * 60
-        
-        let seconds = Int(elapsedTime)
-        
-        elapsedTime -= TimeInterval(seconds)
-        
-        let fraction = Int(elapsedTime * 1000)
-        
-        strMinutes = String(format: "%02d", minutes)
-        strSeconds = String(format: "%02d", seconds)
-        strFraction = String(format: "%03", fraction)
-        
-        if strMinutes == "00" {
-            self.timerLabel.text = "\(strSeconds).\(strFraction)"
-        } else {
-            self.timerLabel.text = "\(strMinutes):\(strSeconds).\(strFraction)"
-        }
-        
+        let elapsedTime: TimeInterval = currentTime - startTime
+        self.timerLabel.text = TimeConverter.shared.durationToStr(elapsedTime)
     }
     
     func addLongPressGesture(view: UIView) {
@@ -71,7 +52,7 @@ class TimerViewController: UIViewController {
             stopTimer()
             self.timerLabel.textColor = .white
         } else {
-            self.timerLabel.text = "00.00"
+            self.timerLabel.text = "00.000"
             self.timerLabel.textColor = .red
             DispatchQueue.main.asyncAfter(deadline: .now()+0.1) {
                 self.timerLabel.textColor = .white
@@ -122,10 +103,11 @@ class TimerViewController: UIViewController {
     func stopTimer() {
         timer.invalidate()
         let created = NSDate.timeIntervalSinceReferenceDate
+        
         let duration: TimeInterval = created - startTime
         let scramble = self.prevAlg
         let session = 0
-        let data = SolutionData(algorithm: scramble, duration: duration, created: created, session: session)
+        let data = SolutionData(algorithm: scramble, duration: duration, created: created, session: session, showAlgorithm: false)
         self.saveData(data: data)
         isTimeRunning = false
     }
