@@ -8,28 +8,37 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 class TimerViewController: CubeTimerBaseViewController {
 
+    var colRef: CollectionReference!
+    
     @IBOutlet weak var scrambleLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
     
     var timer = Timer()
     var startTime = TimeInterval()
     var isTimeRunning = false
-    
     var strMinutes = ""
     var strSeconds = ""
     var strFraction = ""
     var prevAlg = ""
+    let session = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addLongPressGesture(view: self.view)
         self.addTapGestureRecognizer(view: self.view)
         self.scrambleLabel.text = AlgorithmGenerator.generateAlg()
+        let path = "solution/session\(self.session)/solution"
+        self.colRef = Firestore.firestore().collection(path)
     }
   
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidLoad()
+    }
+    
     @objc func updateTime() {
         let currentTime = NSDate.timeIntervalSinceReferenceDate
         let elapsedTime: TimeInterval = currentTime - startTime
@@ -108,7 +117,14 @@ class TimerViewController: CubeTimerBaseViewController {
         let scramble = self.prevAlg
         let session = 0
         let data = SolutionData(algorithm: scramble, duration: duration, created: created, session: session, showAlgorithm: false)
-        self.saveData(data: data)
+        
+        if self.toSaveDB {
+            self.saveDataToDB(data: data)
+
+        } else {
+            self.saveData(data: data)
+        }
+        
         isTimeRunning = false
     }
 }
@@ -132,6 +148,18 @@ extension TimerViewController {
         } catch {
             print("failed saving")
         }
-        
+    }
+    
+    func  saveDataToDB(data: SolutionData)  {
+        let dataToSave : [String: Any] = ["algorithm" : data.algorithm, "created" : data.created, "session" : data.session, "duration": data.duration]
+//        colRef..setData(dataToSave) { (error) in
+//            print("failed to save")
+//        }
+//        print("successfully saved data")
+//    }
+        colRef.addDocument(data: dataToSave) { (error) in
+            print("failed to save")
+        }
+        print("successfully saved data")
     }
 }

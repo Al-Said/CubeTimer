@@ -13,5 +13,14 @@ class SettingsViewController: CubeTimerBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
+    @IBAction func saveToDatabaseAction(_ sender: UISwitch) {
+        if sender.isOn {
+            UserDefaults.standard.set(true, forKey: "toSaveDb")
+        } else {
+            UserDefaults.standard.set(false, forKey: "toSaveDb")
+        }
+        
+    }
+    
 }

@@ -10,11 +10,18 @@ import UIKit
 
 class CubeTimerBaseViewController: UIViewController {
 
+    var toSaveDB = false
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        toSaveDb = UserDefaults.standard.bool(forKey: "toSaveDb")
     }
 }

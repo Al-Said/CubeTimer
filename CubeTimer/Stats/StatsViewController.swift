@@ -8,11 +8,14 @@
 
 import UIKit
 import CoreData
+import Firebase
 
-class StatsViewController: UIViewController {
+class StatsViewController: CubeTimerBaseViewController {
     
     @IBOutlet var table: UITableView!
-    
+    var session = 0
+    var db = Firestore.firestore()
+    var colRef: CollectionReference!
     var datas = [SolutionData]()
     var lastOpened = -1
     
@@ -20,13 +23,18 @@ class StatsViewController: UIViewController {
         super.viewDidLoad()
         table.delegate = self
         table.dataSource = self
-        
+        let path = "solution/session\(self.session)/solution"
+        self.colRef = Firestore.firestore().collection(path)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         datas.removeAll()
-        fetchData()
+        if self.toSaveDB {
+            fetchDataFromDB()
+        } else {
+            fetchData()
+        }
         table.reloadData()
     }
     
@@ -50,6 +58,28 @@ class StatsViewController: UIViewController {
             }
         } catch {
             print("failed")
+        }
+    }
+    
+    func fetchDataFromDB() {
+        self.colRef.getDocuments() { (query, err) in
+            if err != nil {
+                print("An error has occured...")
+            } else {
+                for sol in query!.documents {
+                    let data = sol.data()
+                    let algorithm = data["algorithm"] as? String ?? ""
+                    let created = data["created"] as? Double ?? 0.0
+                    let duration = data["duration"] as? Double ?? 0.0
+                    let session = data["session"] as? Int ?? 0
+                    
+                    let solution = SolutionData(algorithm: algorithm, duration: duration, created: created, session: session, showAlgorithm: false)
+                    self.datas.append(solution)
+                }
+                self.datas.reverse()
+                self.table.reloadData()
+                print("successfull")
+            }
         }
     }
     
