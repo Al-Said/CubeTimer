@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F9EDF6F1AAC59EFC8650CB99 /* Pods_CubeTimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59F6997BEB1C9A37771D94C1 /* Pods_CubeTimer.framework */; };
 		FD28A36F22844D3000832A1D /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD28A36E22844D3000832A1D /* TimerViewController.swift */; };
 		FD55033522854FD00036AC3F /* TimeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55033422854FD00036AC3F /* TimeConverter.swift */; };
 		FD55033722855C420036AC3F /* StatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55033622855C420036AC3F /* StatTableViewCell.swift */; };
@@ -24,9 +25,12 @@
 		FDE913ED2242253A00592E3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDE913EC2242253A00592E3C /* Assets.xcassets */; };
 		FDE913F02242253A00592E3C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDE913EE2242253A00592E3C /* LaunchScreen.storyboard */; };
 		FDE913F8224226D400592E3C /* AlgorithmGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE913F7224226D400592E3C /* AlgorithmGenerator.swift */; };
+		FDF0DF572289ACCB00AABEAA /* CubeTimerEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF0DF562289ACCB00AABEAA /* CubeTimerEnums.swift */; };
+		FDF0DF592289ADF500AABEAA /* CubeTimerLabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF0DF582289ADF500AABEAA /* CubeTimerLabelExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		59F6997BEB1C9A37771D94C1 /* Pods_CubeTimer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CubeTimer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6F95422C079CE31A05E90FA /* Pods-CubeTimer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CubeTimer.debug.xcconfig"; path = "Target Support Files/Pods-CubeTimer/Pods-CubeTimer.debug.xcconfig"; sourceTree = "<group>"; };
 		B91A3B747B882A992D340158 /* Pods-CubeTimer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CubeTimer.release.xcconfig"; path = "Target Support Files/Pods-CubeTimer/Pods-CubeTimer.release.xcconfig"; sourceTree = "<group>"; };
 		FD28A36E22844D3000832A1D /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
@@ -48,6 +52,8 @@
 		FDE913EF2242253A00592E3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FDE913F12242253A00592E3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FDE913F7224226D400592E3C /* AlgorithmGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmGenerator.swift; sourceTree = "<group>"; };
+		FDF0DF562289ACCB00AABEAA /* CubeTimerEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeTimerEnums.swift; sourceTree = "<group>"; };
+		FDF0DF582289ADF500AABEAA /* CubeTimerLabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeTimerLabelExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9EDF6F1AAC59EFC8650CB99 /* Pods_CubeTimer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +80,7 @@
 		3E05510FDE3E42A1098EC221 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				59F6997BEB1C9A37771D94C1 /* Pods_CubeTimer.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -148,6 +156,8 @@
 				FD56C8132248AEF900F291DB /* SolutionData.swift */,
 				FD55033422854FD00036AC3F /* TimeConverter.swift */,
 				FD55033822856A5F0036AC3F /* CubeTimerBaseViewController.swift */,
+				FDF0DF562289ACCB00AABEAA /* CubeTimerEnums.swift */,
+				FDF0DF582289ADF500AABEAA /* CubeTimerLabelExtension.swift */,
 			);
 			path = CubeTimer;
 			sourceTree = "<group>";
@@ -292,12 +302,14 @@
 				FD55033B22856ADE0036AC3F /* SettingsViewController.swift in Sources */,
 				FD28A36F22844D3000832A1D /* TimerViewController.swift in Sources */,
 				FD76277A22525293003B5F60 /* StatsViewController.swift in Sources */,
+				FDF0DF572289ACCB00AABEAA /* CubeTimerEnums.swift in Sources */,
 				FD55033D22856AF70036AC3F /* ProfileViewController.swift in Sources */,
 				FD55033522854FD00036AC3F /* TimeConverter.swift in Sources */,
 				FDE913E32242253800592E3C /* AppDelegate.swift in Sources */,
 				FD55033F22856FA10036AC3F /* BaseStatsViewController.swift in Sources */,
 				FD55033922856A5F0036AC3F /* CubeTimerBaseViewController.swift in Sources */,
 				FD56C8142248AEF900F291DB /* SolutionData.swift in Sources */,
+				FDF0DF592289ADF500AABEAA /* CubeTimerLabelExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

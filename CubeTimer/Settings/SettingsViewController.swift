@@ -10,8 +10,36 @@ import UIKit
 
 class SettingsViewController: CubeTimerBaseViewController {
 
+    @IBOutlet weak var dbSwitch: UISwitch!
+    @IBOutlet weak var themeSwitch: UISwitch!
+    
+    @IBOutlet weak var saveToDbLabel: UILabel!
+    @IBOutlet weak var themeLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setInitialValues()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        initUI()
+    }
+    
+    func initUI() {
+        self.saveToDbLabel.initLabel(with: self.theme)
+        self.themeLabel.initLabel(with: self.theme)
+    }
+    
+    func setInitialValues() {
+        if self.theme == .light {
+            themeSwitch.isOn = true
+            self.themeLabel.text = "Light Theme"
+        }
+        
+        if self.toSaveDB {
+            self.dbSwitch.isOn = true
+        }
     }
     
     @IBAction func saveToDatabaseAction(_ sender: UISwitch) {
@@ -20,7 +48,18 @@ class SettingsViewController: CubeTimerBaseViewController {
         } else {
             UserDefaults.standard.set(false, forKey: "toSaveDb")
         }
-        
     }
+    
+    @IBAction func changeThemeAction(_ sender: UISwitch) {
+        if sender.isOn {
+            UserDefaults.standard.set(false, forKey: "theme")
+            self.themeLabel.text = "Light Theme"
+        } else {
+            UserDefaults.standard.set(true, forKey: "theme")
+            self.themeLabel.text = "Dark Theme"
+        }
+        self.viewDidAppear(true)
+    }
+    
     
 }

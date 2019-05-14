@@ -36,6 +36,7 @@ class StatsViewController: CubeTimerBaseViewController {
             fetchData()
         }
         table.reloadData()
+        if self.theme == .light { self.table.separatorColor = .black } else { self.table.separatorColor = .white }
     }
     
     func fetchData() {
@@ -107,6 +108,7 @@ extension StatsViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         cell.initializeCell(with: datas[indexPath.row])
+        cell.initLabels(with: self.theme)
         return cell
     }
     

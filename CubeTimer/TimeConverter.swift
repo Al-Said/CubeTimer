@@ -12,7 +12,6 @@ class TimeConverter {
     
     static var shared = TimeConverter()
     
-    
     func durationToStr(_ duration: Double) -> String {
         
         var time = duration

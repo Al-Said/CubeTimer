@@ -30,4 +30,11 @@ class StatTableViewCell: UITableViewCell {
         self.sessionLabel.text = "Session: \(data.session)"
         self.algorithmLabel.text = data.algorithm
     }
+    
+    func initLabels(with theme: Theme) {
+        self.durationLabel.initLabel(with: theme)
+        self.createdLabel.initLabel(with: theme)
+        self.sessionLabel.initLabel(with: theme)
+        self.algorithmLabel.initLabel(with: theme)
+    }
 }

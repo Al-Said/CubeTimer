@@ -19,6 +19,8 @@ class TimerViewController: CubeTimerBaseViewController {
     
     var timer = Timer()
     var startTime = TimeInterval()
+    var avg5 = 0.0
+    var avg12 = 0.0
     var isTimeRunning = false
     var strMinutes = ""
     var strSeconds = ""
@@ -36,7 +38,8 @@ class TimerViewController: CubeTimerBaseViewController {
     }
   
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidLoad()
+        super.viewDidAppear(animated)
+        self.initUI()
     }
     
     @objc func updateTime() {
@@ -59,12 +62,12 @@ class TimerViewController: CubeTimerBaseViewController {
     @objc func handleTap(sender: UITapGestureRecognizer) {
         if isTimeRunning {
             stopTimer()
-            self.timerLabel.textColor = .white
+            self.timerLabel.initLabel(with: self.theme)
         } else {
             self.timerLabel.text = "00.000"
             self.timerLabel.textColor = .red
             DispatchQueue.main.asyncAfter(deadline: .now()+0.1) {
-                self.timerLabel.textColor = .white
+                self.timerLabel.initLabel(with: self.theme)
             }
         }
     }
@@ -93,7 +96,7 @@ class TimerViewController: CubeTimerBaseViewController {
                 startTimer()
                 isTimeRunning = true
             }
-            self.timerLabel.textColor = .white
+            self.timerLabel.initLabel(with: self.theme)
             
             break
         default:
@@ -127,6 +130,11 @@ class TimerViewController: CubeTimerBaseViewController {
         
         isTimeRunning = false
     }
+    
+    func initUI() {
+        self.scrambleLabel.initLabel(with: self.theme)
+        self.timerLabel.initLabel(with: self.theme)
+    }
 }
 
 extension TimerViewController {
@@ -152,11 +160,6 @@ extension TimerViewController {
     
     func  saveDataToDB(data: SolutionData)  {
         let dataToSave : [String: Any] = ["algorithm" : data.algorithm, "created" : data.created, "session" : data.session, "duration": data.duration]
-//        colRef..setData(dataToSave) { (error) in
-//            print("failed to save")
-//        }
-//        print("successfully saved data")
-//    }
         colRef.addDocument(data: dataToSave) { (error) in
             print("failed to save")
         }

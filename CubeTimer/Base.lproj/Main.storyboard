@@ -147,6 +147,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Stats" image="bar-chart" id="ikM-bj-baM"/>
                     <connections>
+                        <outlet property="changeViewSegmentedControl" destination="tkF-h6-3uv" id="Ifh-fS-hgg"/>
                         <outlet property="scrollView" destination="s8v-UP-2eH" id="AJM-h9-0RL"/>
                     </connections>
                 </viewController>
@@ -181,18 +182,49 @@
                                     <action selector="saveToDatabaseAction:" destination="yap-te-hLj" eventType="valueChanged" id="Trx-QQ-jCD"/>
                                 </connections>
                             </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dark Theme" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6bS-7r-K9f">
+                                <rect key="frame" x="16" y="126" width="224" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="rYB-RQ-f6K"/>
+                                    <constraint firstAttribute="width" secondItem="6bS-7r-K9f" secondAttribute="height" multiplier="28:5" id="spJ-Td-ImL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tGm-la-KVe">
+                                <rect key="frame" x="256" y="126" width="50" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="TK3-Sf-Q4t"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="changeThemeAction:" destination="yap-te-hLj" eventType="valueChanged" id="RKq-Q7-5t2"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="tGm-la-KVe" firstAttribute="top" secondItem="OGm-zg-yp9" secondAttribute="bottom" constant="20" id="EJ7-LE-XEp"/>
+                            <constraint firstItem="6bS-7r-K9f" firstAttribute="leading" secondItem="4JU-7H-ARQ" secondAttribute="leading" constant="16" id="FqD-b0-pxh"/>
                             <constraint firstItem="k9b-j3-eef" firstAttribute="top" secondItem="4JU-7H-ARQ" secondAttribute="top" constant="50" id="FqW-Ca-ybR"/>
+                            <constraint firstItem="tGm-la-KVe" firstAttribute="leading" secondItem="6bS-7r-K9f" secondAttribute="trailing" constant="16" id="I1f-ib-9kF"/>
                             <constraint firstItem="k9b-j3-eef" firstAttribute="leading" secondItem="4JU-7H-ARQ" secondAttribute="leading" constant="16" id="K8m-wF-jHA"/>
                             <constraint firstItem="4JU-7H-ARQ" firstAttribute="trailing" secondItem="OGm-zg-yp9" secondAttribute="trailing" constant="17" id="N9H-Dp-NOk"/>
+                            <constraint firstItem="4JU-7H-ARQ" firstAttribute="trailing" secondItem="tGm-la-KVe" secondAttribute="trailing" constant="16" id="SF4-Je-0oJ"/>
+                            <constraint firstItem="6bS-7r-K9f" firstAttribute="top" secondItem="k9b-j3-eef" secondAttribute="bottom" constant="16" id="XdN-6g-OP1"/>
+                            <constraint firstItem="tGm-la-KVe" firstAttribute="top" secondItem="OGm-zg-yp9" secondAttribute="bottom" constant="20" id="dzu-gd-Vzk"/>
                             <constraint firstItem="OGm-zg-yp9" firstAttribute="leading" secondItem="k9b-j3-eef" secondAttribute="trailing" constant="16" id="fZB-yK-ln0"/>
                             <constraint firstItem="OGm-zg-yp9" firstAttribute="top" secondItem="4JU-7H-ARQ" secondAttribute="top" constant="55" id="rHN-rh-SbQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4JU-7H-ARQ"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="settings" id="zOP-5u-Pse"/>
+                    <connections>
+                        <outlet property="dbSwitch" destination="OGm-zg-yp9" id="EnP-n5-eDW"/>
+                        <outlet property="saveToDbLabel" destination="k9b-j3-eef" id="Sxp-xy-tOB"/>
+                        <outlet property="themeLabel" destination="6bS-7r-K9f" id="Wds-1u-LYl"/>
+                        <outlet property="themeSwitch" destination="tGm-la-KVe" id="seQ-g8-iBI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XYR-rY-GjA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

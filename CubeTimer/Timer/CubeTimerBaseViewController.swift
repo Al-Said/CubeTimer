@@ -11,6 +11,7 @@ import UIKit
 class CubeTimerBaseViewController: UIViewController {
 
     var toSaveDB = false
+    var theme = Theme.dark
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -22,6 +23,18 @@ class CubeTimerBaseViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        toSaveDb = UserDefaults.standard.bool(forKey: "toSaveDb")
+        toSaveDB = UserDefaults.standard.bool(forKey: "toSaveDb")
+        let isDark = UserDefaults.standard.bool(forKey: "theme")
+        self.theme = isDark ? .dark : .light
+        self.view!.backgroundColor = initBackgroundColor()
+    }
+    
+    func initBackgroundColor() -> UIColor {
+        switch self.theme {
+        case .dark:
+            return .black
+        case .light:
+            return .white
+        }
     }
 }
