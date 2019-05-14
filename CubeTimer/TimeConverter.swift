@@ -45,4 +45,16 @@ class TimeConverter {
         formatter.dateFormat = "yyyy-MM-dd HH:mm"
         return formatter.string(from: date)
     }
+    
+    func strToDuration(_ string: String) -> Double {
+        
+        if string.contains(":") {
+            let duration = string.split(separator: ":", maxSplits: 1, omittingEmptySubsequences: true)
+            let min = Double(duration[0])! * 60
+            let miliSeconds = Double(duration[1])!
+            return min + miliSeconds
+        } else {
+            return Double(string)!
+        }
+    }
 }

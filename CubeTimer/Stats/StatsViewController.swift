@@ -63,25 +63,47 @@ class StatsViewController: CubeTimerBaseViewController {
     }
     
     func fetchDataFromDB() {
-        self.colRef.getDocuments() { (query, err) in
+        
+        let query = colRef.order(by: "created", descending: true)
+        query.addSnapshotListener() {
+            (query, err) in
             if err != nil {
-                print("An error has occured...")
+                print("An error has occured!")
             } else {
+                self.datas.removeAll()
                 for sol in query!.documents {
                     let data = sol.data()
                     let algorithm = data["algorithm"] as? String ?? ""
                     let created = data["created"] as? Double ?? 0.0
                     let duration = data["duration"] as? Double ?? 0.0
                     let session = data["session"] as? Int ?? 0
-                    
+            
                     let solution = SolutionData(algorithm: algorithm, duration: duration, created: created, session: session, showAlgorithm: false)
                     self.datas.append(solution)
                 }
-                self.datas.reverse()
                 self.table.reloadData()
                 print("successfull")
             }
         }
+        
+//        self.colRef.getDocuments() { (query, err) in
+//            if err != nil {
+//                print("An error has occured...")
+//            } else {
+//                for sol in query!.documents {
+//                    let data = sol.data()
+//                    let algorithm = data["algorithm"] as? String ?? ""
+//                    let created = data["created"] as? Double ?? 0.0
+//                    let duration = data["duration"] as? Double ?? 0.0
+//                    let session = data["session"] as? Int ?? 0
+//
+//                    let solution = SolutionData(algorithm: algorithm, duration: duration, created: created, session: session, showAlgorithm: false)
+//                    self.datas.append(solution)
+//                }
+//                self.table.reloadData()
+//                print("successfull")
+//            }
+//        }
     }
     
 }

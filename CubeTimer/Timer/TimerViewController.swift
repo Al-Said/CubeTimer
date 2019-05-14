@@ -113,12 +113,13 @@ class TimerViewController: CubeTimerBaseViewController {
     }
     
     func stopTimer() {
-        timer.invalidate()
-        let created = NSDate.timeIntervalSinceReferenceDate
         
-        let duration: TimeInterval = created - startTime
+        timer.invalidate()
+        
         let scramble = self.prevAlg
         let session = 0
+        let duration = TimeConverter.shared.strToDuration(self.timerLabel.text!)
+        let created =  NSDate.timeIntervalSinceReferenceDate
         let data = SolutionData(algorithm: scramble, duration: duration, created: created, session: session, showAlgorithm: false)
         
         if self.toSaveDB {

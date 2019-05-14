@@ -18,12 +18,12 @@ class SettingsViewController: CubeTimerBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setInitialValues()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         initUI()
+        setInitialValues()
     }
     
     func initUI() {
