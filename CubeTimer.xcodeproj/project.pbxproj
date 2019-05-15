@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6B9C67E2EA727CDD62EA885A /* Pods_CubeTimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E01667821463A2E0315E39D2 /* Pods_CubeTimer.framework */; };
 		FD28A36F22844D3000832A1D /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD28A36E22844D3000832A1D /* TimerViewController.swift */; };
 		FD55033522854FD00036AC3F /* TimeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55033422854FD00036AC3F /* TimeConverter.swift */; };
 		FD55033722855C420036AC3F /* StatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55033622855C420036AC3F /* StatTableViewCell.swift */; };
@@ -17,7 +16,14 @@
 		FD55033F22856FA10036AC3F /* BaseStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55033E22856FA10036AC3F /* BaseStatsViewController.swift */; };
 		FD550341228570EB0036AC3F /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD550340228570EB0036AC3F /* ChartsViewController.swift */; };
 		FD55034522858DA00036AC3F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD55034422858DA00036AC3F /* GoogleService-Info.plist */; };
+		FD55D1E7228BE9BD00297294 /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55D1E6228BE9BD00297294 /* LoginPageViewController.swift */; };
+		FD55D1E9228BE9D900297294 /* SignUpPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55D1E8228BE9D900297294 /* SignUpPageViewController.swift */; };
+		FD55D1EB228BF80800297294 /* BaseOnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55D1EA228BF80800297294 /* BaseOnboardViewController.swift */; };
+		FD55D1ED228BFE1E00297294 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55D1EC228BFE1E00297294 /* UserData.swift */; };
+		FD55D1F0228C2DFE00297294 /* CubeTimerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55D1EF228C2DFE00297294 /* CubeTimerButton.swift */; };
 		FD56C8142248AEF900F291DB /* SolutionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD56C8132248AEF900F291DB /* SolutionData.swift */; };
+		FD5910A8228BE74B0075944C /* Onboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD5910A7228BE74B0075944C /* Onboard.storyboard */; };
+		FD5910AA228BE83B0075944C /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5910A9228BE83B0075944C /* OnboardViewController.swift */; };
 		FD76277A22525293003B5F60 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD76277922525293003B5F60 /* StatsViewController.swift */; };
 		FDE913E32242253800592E3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE913E22242253800592E3C /* AppDelegate.swift */; };
 		FDE913E82242253800592E3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDE913E62242253800592E3C /* Main.storyboard */; };
@@ -32,7 +38,6 @@
 /* Begin PBXFileReference section */
 		B6F95422C079CE31A05E90FA /* Pods-CubeTimer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CubeTimer.debug.xcconfig"; path = "Target Support Files/Pods-CubeTimer/Pods-CubeTimer.debug.xcconfig"; sourceTree = "<group>"; };
 		B91A3B747B882A992D340158 /* Pods-CubeTimer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CubeTimer.release.xcconfig"; path = "Target Support Files/Pods-CubeTimer/Pods-CubeTimer.release.xcconfig"; sourceTree = "<group>"; };
-		E01667821463A2E0315E39D2 /* Pods_CubeTimer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CubeTimer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD28A36E22844D3000832A1D /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		FD55033422854FD00036AC3F /* TimeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConverter.swift; sourceTree = "<group>"; };
 		FD55033622855C420036AC3F /* StatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatTableViewCell.swift; sourceTree = "<group>"; };
@@ -42,7 +47,14 @@
 		FD55033E22856FA10036AC3F /* BaseStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseStatsViewController.swift; sourceTree = "<group>"; };
 		FD550340228570EB0036AC3F /* ChartsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
 		FD55034422858DA00036AC3F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		FD55D1E6228BE9BD00297294 /* LoginPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
+		FD55D1E8228BE9D900297294 /* SignUpPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPageViewController.swift; sourceTree = "<group>"; };
+		FD55D1EA228BF80800297294 /* BaseOnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseOnboardViewController.swift; sourceTree = "<group>"; };
+		FD55D1EC228BFE1E00297294 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		FD55D1EF228C2DFE00297294 /* CubeTimerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CubeTimerButton.swift; path = CubeTimer/Timer/CubeTimerButton.swift; sourceTree = SOURCE_ROOT; };
 		FD56C8132248AEF900F291DB /* SolutionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolutionData.swift; sourceTree = "<group>"; };
+		FD5910A7228BE74B0075944C /* Onboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboard.storyboard; sourceTree = "<group>"; };
+		FD5910A9228BE83B0075944C /* OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
 		FD76277922525293003B5F60 /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		FDE913DF2242253800592E3C /* CubeTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CubeTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDE913E22242253800592E3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,7 +73,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B9C67E2EA727CDD62EA885A /* Pods_CubeTimer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,9 +91,29 @@
 		3E05510FDE3E42A1098EC221 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E01667821463A2E0315E39D2 /* Pods_CubeTimer.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FD55D1EE228BFE2900297294 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FD56C8132248AEF900F291DB /* SolutionData.swift */,
+				FD55D1EC228BFE1E00297294 /* UserData.swift */,
+				FD55D1EF228C2DFE00297294 /* CubeTimerButton.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FD5910AB228BE84C0075944C /* Onboard */ = {
+			isa = PBXGroup;
+			children = (
+				FD5910A9228BE83B0075944C /* OnboardViewController.swift */,
+				FD55D1E6228BE9BD00297294 /* LoginPageViewController.swift */,
+				FD55D1E8228BE9D900297294 /* SignUpPageViewController.swift */,
+				FD55D1EA228BF80800297294 /* BaseOnboardViewController.swift */,
+			);
+			path = Onboard;
 			sourceTree = "<group>";
 		};
 		FDB733EF224522EC003667AC /* Timer */ = {
@@ -148,12 +179,14 @@
 				FDE913F12242253A00592E3C /* Info.plist */,
 				FD55034422858DA00036AC3F /* GoogleService-Info.plist */,
 				FDE913EE2242253A00592E3C /* LaunchScreen.storyboard */,
+				FD5910A7228BE74B0075944C /* Onboard.storyboard */,
 				FDE913E62242253800592E3C /* Main.storyboard */,
 				FDB733F22245231B003667AC /* Stats */,
 				FDB733F0224522F7003667AC /* Profile */,
 				FDB733F1224522FF003667AC /* Settings */,
 				FDB733EF224522EC003667AC /* Timer */,
-				FD56C8132248AEF900F291DB /* SolutionData.swift */,
+				FD55D1EE228BFE2900297294 /* Models */,
+				FD5910AB228BE84C0075944C /* Onboard */,
 				FD55033422854FD00036AC3F /* TimeConverter.swift */,
 				FD55033822856A5F0036AC3F /* CubeTimerBaseViewController.swift */,
 				FDF0DF562289ACCB00AABEAA /* CubeTimerEnums.swift */,
@@ -225,6 +258,7 @@
 				FDE913F02242253A00592E3C /* LaunchScreen.storyboard in Resources */,
 				FD55034522858DA00036AC3F /* GoogleService-Info.plist in Resources */,
 				FDE913ED2242253A00592E3C /* Assets.xcassets in Resources */,
+				FD5910A8228BE74B0075944C /* Onboard.storyboard in Resources */,
 				FDE913E82242253800592E3C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,6 +276,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CubeTimer/Pods-CubeTimer-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
@@ -254,6 +289,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
@@ -295,20 +331,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD55D1E7228BE9BD00297294 /* LoginPageViewController.swift in Sources */,
 				FD550341228570EB0036AC3F /* ChartsViewController.swift in Sources */,
+				FD55D1F0228C2DFE00297294 /* CubeTimerButton.swift in Sources */,
 				FDE913F8224226D400592E3C /* AlgorithmGenerator.swift in Sources */,
 				FD55033722855C420036AC3F /* StatTableViewCell.swift in Sources */,
 				FDE913EB2242253800592E3C /* CubeTimer.xcdatamodeld in Sources */,
 				FD55033B22856ADE0036AC3F /* SettingsViewController.swift in Sources */,
+				FD55D1EB228BF80800297294 /* BaseOnboardViewController.swift in Sources */,
 				FD28A36F22844D3000832A1D /* TimerViewController.swift in Sources */,
 				FD76277A22525293003B5F60 /* StatsViewController.swift in Sources */,
 				FDF0DF572289ACCB00AABEAA /* CubeTimerEnums.swift in Sources */,
 				FD55033D22856AF70036AC3F /* ProfileViewController.swift in Sources */,
 				FD55033522854FD00036AC3F /* TimeConverter.swift in Sources */,
+				FD5910AA228BE83B0075944C /* OnboardViewController.swift in Sources */,
 				FDE913E32242253800592E3C /* AppDelegate.swift in Sources */,
 				FD55033F22856FA10036AC3F /* BaseStatsViewController.swift in Sources */,
 				FD55033922856A5F0036AC3F /* CubeTimerBaseViewController.swift in Sources */,
+				FD55D1E9228BE9D900297294 /* SignUpPageViewController.swift in Sources */,
 				FD56C8142248AEF900F291DB /* SolutionData.swift in Sources */,
+				FD55D1ED228BFE1E00297294 /* UserData.swift in Sources */,
 				FDF0DF592289ADF500AABEAA /* CubeTimerLabelExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
