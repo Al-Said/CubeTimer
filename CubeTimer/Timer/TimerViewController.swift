@@ -26,14 +26,13 @@ class TimerViewController: CubeTimerBaseViewController {
     var strSeconds = ""
     var strFraction = ""
     var prevAlg = ""
-    let session = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addLongPressGesture(view: self.view)
         self.addTapGestureRecognizer(view: self.view)
         self.scrambleLabel.text = AlgorithmGenerator.generateAlg()
-        let path = "solution/session\(self.session)/solution"
+        let path = "Solution/\(AuthManager.shared.getUID())/Sessions/session\(session)/solution"
         self.colRef = Firestore.firestore().collection(path)
     }
   
@@ -115,18 +114,16 @@ class TimerViewController: CubeTimerBaseViewController {
     func stopTimer() {
         
         timer.invalidate()
-        
         let scramble = self.prevAlg
         let session = 0
         let duration = TimeConverter.shared.strToDuration(self.timerLabel.text!)
         let created =  NSDate.timeIntervalSinceReferenceDate
         let data = SolutionData(algorithm: scramble, duration: duration, created: created, session: session, showAlgorithm: false)
         
-        if self.toSaveDB {
-            self.saveDataToDB(data: data)
-
-        } else {
+        if self.reachability!.connection == .none {
             self.saveData(data: data)
+        } else {
+            self.saveDataToDB(data: data)
         }
         
         isTimeRunning = false
@@ -153,17 +150,17 @@ extension TimerViewController {
         
         do {
             try context.save()
-            print("successful")
+            print("successfully save data to core")
         } catch {
-            print("failed saving")
+            print("failed saving data to core")
         }
     }
     
     func  saveDataToDB(data: SolutionData)  {
         let dataToSave : [String: Any] = ["algorithm" : data.algorithm, "created" : data.created, "session" : data.session, "duration": data.duration]
         colRef.addDocument(data: dataToSave) { (error) in
-            print("failed to save")
+            print("failed to save data to db")
         }
-        print("successfully saved data")
+        print("successfully saved data to db")
     }
 }

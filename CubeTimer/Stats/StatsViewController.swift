@@ -10,108 +10,40 @@ import UIKit
 import CoreData
 import Firebase
 
-class StatsViewController: CubeTimerBaseViewController {
+class StatsViewController: BaseStatsViewController {
     
     @IBOutlet var table: UITableView!
-    var session = 0
-    var db = Firestore.firestore()
-    var colRef: CollectionReference!
-    var datas = [SolutionData]()
     var lastOpened = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
         table.delegate = self
         table.dataSource = self
-        let path = "solution/session\(self.session)/solution"
-        self.colRef = Firestore.firestore().collection(path)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        datas.removeAll()
-        if self.toSaveDB {
-            fetchDataFromDB()
-        } else {
-            fetchData()
-        }
-        table.reloadData()
         if self.theme == .light { self.table.separatorColor = .black } else { self.table.separatorColor = .white }
-    }
-    
-    func fetchData() {
-        let delegate = UIApplication.shared.delegate as! AppDelegate
-        let context = delegate.persistentContainer.viewContext
-        
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Record")
-        request.returnsObjectsAsFaults = false
-        
-        do {
-            let result = try context.fetch(request)
-            for data in result as! [NSManagedObject] {
-                let algorithm = data.value(forKey: "algorithm") as! String
-                let created = data.value(forKey: "created") as! Double
-                let duration = data.value(forKey: "duration") as! Double
-                let session = data.value(forKey: "session") as! Int
-                
-                let solution = SolutionData(algorithm: algorithm, duration: duration, created: created, session: session, showAlgorithm: false)
-                datas.append(solution)
-            }
-        } catch {
-            print("failed")
-        }
-    }
-    
-    func fetchDataFromDB() {
-        
-        let query = colRef.order(by: "created", descending: true)
-        query.addSnapshotListener() {
-            (query, err) in
-            if err != nil {
-                print("An error has occured!")
-            } else {
-                self.datas.removeAll()
-                for sol in query!.documents {
-                    let data = sol.data()
-                    let algorithm = data["algorithm"] as? String ?? ""
-                    let created = data["created"] as? Double ?? 0.0
-                    let duration = data["duration"] as? Double ?? 0.0
-                    let session = data["session"] as? Int ?? 0
-            
-                    let solution = SolutionData(algorithm: algorithm, duration: duration, created: created, session: session, showAlgorithm: false)
-                    self.datas.append(solution)
-                }
+        self.data.removeAll()
+        if self.reachability!.connection == .none {
+                fetchData() {
                 self.table.reloadData()
-                print("successfull")
+            }
+        } else {
+            fetchDataFromDB() {
+            self.table.reloadData()
             }
         }
-        
-//        self.colRef.getDocuments() { (query, err) in
-//            if err != nil {
-//                print("An error has occured...")
-//            } else {
-//                for sol in query!.documents {
-//                    let data = sol.data()
-//                    let algorithm = data["algorithm"] as? String ?? ""
-//                    let created = data["created"] as? Double ?? 0.0
-//                    let duration = data["duration"] as? Double ?? 0.0
-//                    let session = data["session"] as? Int ?? 0
-//
-//                    let solution = SolutionData(algorithm: algorithm, duration: duration, created: created, session: session, showAlgorithm: false)
-//                    self.datas.append(solution)
-//                }
-//                self.table.reloadData()
-//                print("successfull")
-//            }
-//        }
+
     }
     
+
 }
 
 extension StatsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if datas[indexPath.row].showAlgorithm {
+        if data[indexPath.row].showAlgorithm {
             return 100
         } else {
             return 55
@@ -122,14 +54,14 @@ extension StatsViewController: UITableViewDelegate {
 extension StatsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return datas.count
+        return data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "StatTableViewCell") as? StatTableViewCell else {
             return UITableViewCell()
         }
-        cell.initializeCell(with: datas[indexPath.row])
+        cell.initializeCell(with: data[indexPath.row])
         cell.initLabels(with: self.theme)
         return cell
     }
@@ -140,11 +72,11 @@ extension StatsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if lastOpened != indexPath.row {datas[indexPath.row].showAlgorithm = false }
+        if lastOpened != indexPath.row {data[indexPath.row].showAlgorithm = false }
         
         lastOpened = indexPath.row
-        let show = datas[indexPath.row].showAlgorithm
-        datas[indexPath.row].showAlgorithm = show ? false : true
+        let show = data[indexPath.row].showAlgorithm
+        data[indexPath.row].showAlgorithm = show ? false : true
         table.reloadData()
     }
     

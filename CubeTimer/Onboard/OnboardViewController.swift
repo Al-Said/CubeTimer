@@ -16,8 +16,8 @@ class OnboardViewController: BaseOnboardViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.loginButton.initUI()
-        self.registerButton.initUI()
+        self.loginButton.initUI(with: .dark)
+        self.registerButton.initUI(with: .dark)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -27,3 +27,5 @@ class OnboardViewController: BaseOnboardViewController {
     }
     
 }
+
+

@@ -24,7 +24,7 @@ class SignUpPageViewController: BaseOnboardViewController {
     }
 
     func setUI() {
-        self.signUpButton.initUI()
+        self.signUpButton.initUI(with: .dark)
         
         self.nameTextField.placeholder = "Name Surname"
         self.emailTextField.placeholder = "E-mail"

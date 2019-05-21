@@ -14,3 +14,13 @@ struct User {
     var email: String
     var password: String
 }
+
+struct Profile {
+    var name: String
+    var surname: String
+    var createdSessions: Int
+    var bestSession: Int
+    var totalAvg: Double
+    var bestOfFive: Double
+    var bestOfTwelve: Double
+}

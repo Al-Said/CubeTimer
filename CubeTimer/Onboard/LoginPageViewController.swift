@@ -24,7 +24,7 @@ class LoginPageViewController: BaseOnboardViewController {
     }
     
     func setUI() {
-        self.loginButton.initUI()
+        self.loginButton.initUI(with: .dark)
         
         self.emailTextField.placeholder = "E-mail"
         self.passwordTextField.placeholder = "Password"
