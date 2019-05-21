@@ -33,17 +33,41 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average of 12:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="vqC-4k-wW2">
+                                <rect key="frame" x="0.0" y="439" width="320" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="hZj-qX-OQK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Optima-Italic" family="Optima" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average of 5:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999998807907104" translatesAutoresizingMaskIntoConstraints="NO" id="5Ku-XF-JIm">
+                                <rect key="frame" x="0.0" y="401" width="320" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="IFm-Fd-VA2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Optima-Italic" family="Optima" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="LLY-TT-wwt" secondAttribute="bottom" id="BBS-hc-pZ7"/>
                             <constraint firstItem="LLY-TT-wwt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="D4B-pb-gbv"/>
+                            <constraint firstItem="vqC-4k-wW2" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="M7x-4B-pGv"/>
                             <constraint firstItem="kgd-qh-CEq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="MEg-yK-EZM"/>
+                            <constraint firstItem="vqC-4k-wW2" firstAttribute="top" secondItem="5Ku-XF-JIm" secondAttribute="bottom" constant="8" id="R29-MB-hsk"/>
+                            <constraint firstItem="5Ku-XF-JIm" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="RnK-Q6-hiS"/>
+                            <constraint firstItem="5Ku-XF-JIm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Wn8-0s-Pgd"/>
                             <constraint firstItem="kgd-qh-CEq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="XCs-iB-Nrx"/>
                             <constraint firstItem="LLY-TT-wwt" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="kVp-bK-Rck"/>
                             <constraint firstItem="LLY-TT-wwt" firstAttribute="top" secondItem="kgd-qh-CEq" secondAttribute="bottom" constant="40" id="lwC-ED-FWI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kgd-qh-CEq" secondAttribute="trailing" constant="16" id="rhS-p3-bgV"/>
+                            <constraint firstItem="vqC-4k-wW2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xBf-rj-Ec4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="vqC-4k-wW2" secondAttribute="bottom" constant="50" id="zs7-1P-BjD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <connections>
@@ -52,6 +76,8 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Timer" image="stopwatch" id="SYz-QL-6mr"/>
                     <connections>
+                        <outlet property="avgOf12Label" destination="vqC-4k-wW2" id="FOy-qp-x1V"/>
+                        <outlet property="avgOf5Label" destination="5Ku-XF-JIm" id="tXs-7K-ui3"/>
                         <outlet property="scrambleLabel" destination="kgd-qh-CEq" id="E1N-Di-XMF"/>
                         <outlet property="timerLabel" destination="LLY-TT-wwt" id="Alh-lU-MXl"/>
                     </connections>
@@ -59,7 +85,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="Kkd-Pk-XbI"/>
             </objects>
-            <point key="canvasLocation" x="-1849" y="426"/>
+            <point key="canvasLocation" x="-1850.625" y="425.7042253521127"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="4fC-0g-qc4">
@@ -247,20 +273,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="E-mail :" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ven-YG-B2W">
-                                <rect key="frame" x="16" y="114" width="130" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="12"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="test@cubetimer.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Ej-xA-03x">
-                                <rect key="frame" x="154" y="114" width="150" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="12"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Single Best :" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ifx-tX-HcQ">
                                 <rect key="frame" x="16" y="152" width="130" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -297,7 +309,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="19.267" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LW8-lC-cSj">
-                                <rect key="frame" x="154" y="155" width="150" height="30"/>
+                                <rect key="frame" x="154" y="152" width="150" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -324,13 +336,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Session 8" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J0I-LN-BxU">
-                                <rect key="frame" x="154" y="304" width="150" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="12"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aus-1k-wHO" customClass="CubeTimerButton" customModule="CubeTimer" customModuleProvider="target">
                                 <rect key="frame" x="16" y="469" width="140" height="30"/>
                                 <constraints>
@@ -348,6 +353,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="New Session"/>
+                                <connections>
+                                    <action selector="createNewSession:" destination="5OG-52-dQg" eventType="touchUpInside" id="797-Bz-l2u"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lxH-DN-3X6" customClass="CubeTimerButton" customModule="CubeTimer" customModuleProvider="target">
                                 <rect key="frame" x="174" y="469" width="140" height="30"/>
@@ -361,15 +369,8 @@
                                     <action selector="logoutAction:" destination="5OG-52-dQg" eventType="touchUpInside" id="Mia-9t-HiD"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name &amp; Surname : " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uzk-68-ZJR">
-                                <rect key="frame" x="16" y="76" width="130" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="12"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="test@cubetimer.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jJW-hh-jVv">
-                                <rect key="frame" x="154" y="76" width="150" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Session 8" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J0I-LN-BxU">
+                                <rect key="frame" x="154" y="304" width="150" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -395,9 +396,7 @@
                         <outlet property="bestAvg12Label" destination="XHl-aw-0mV" id="med-Yc-ucB"/>
                         <outlet property="bestAvgLabel" destination="70B-pb-HR2" id="El9-dZ-BhM"/>
                         <outlet property="bestSessionLabel" destination="J0I-LN-BxU" id="uZi-XS-uN9"/>
-                        <outlet property="emailLabel" destination="0Ej-xA-03x" id="aQ7-1Q-OTu"/>
                         <outlet property="logOutButton" destination="lxH-DN-3X6" id="2LE-ye-gLY"/>
-                        <outlet property="nameLabel" destination="jJW-hh-jVv" id="iBV-le-cUJ"/>
                         <outlet property="newSessionButton" destination="biB-7M-0m4" id="Anj-2w-nFR"/>
                         <outlet property="selectSessionButton" destination="aus-1k-wHO" id="h01-ER-AcJ"/>
                         <outlet property="singleBestLabel" destination="LW8-lC-cSj" id="r7P-iJ-eGc"/>

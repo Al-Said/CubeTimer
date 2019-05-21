@@ -73,7 +73,6 @@ class BaseStatsViewController: CubeTimerBaseViewController {
         
             }
         }
-
     }
     
     func fetchData(_ completion: @escaping () -> () ) {

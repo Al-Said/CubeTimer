@@ -27,6 +27,7 @@
 		FD5910A8228BE74B0075944C /* Onboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD5910A7228BE74B0075944C /* Onboard.storyboard */; };
 		FD5910AA228BE83B0075944C /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5910A9228BE83B0075944C /* OnboardViewController.swift */; };
 		FD76277A22525293003B5F60 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD76277922525293003B5F60 /* StatsViewController.swift */; };
+		FD7DB3302294136800D0AEE2 /* AverageCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7DB32F2294136800D0AEE2 /* AverageCalculator.swift */; };
 		FDD5B02A2292F325002B5372 /* LineChartValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD5B0292292F325002B5372 /* LineChartValueFormatter.swift */; };
 		FDD5B02C2293D44B002B5372 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD5B02B2293D44B002B5372 /* Reachability.swift */; };
 		FDE913E32242253800592E3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE913E22242253800592E3C /* AppDelegate.swift */; };
@@ -47,7 +48,7 @@
 		FD28A36E22844D3000832A1D /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		FD55033422854FD00036AC3F /* TimeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConverter.swift; sourceTree = "<group>"; };
 		FD55033622855C420036AC3F /* StatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatTableViewCell.swift; sourceTree = "<group>"; };
-		FD55033822856A5F0036AC3F /* CubeTimerBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CubeTimerBaseViewController.swift; path = Timer/CubeTimerBaseViewController.swift; sourceTree = "<group>"; };
+		FD55033822856A5F0036AC3F /* CubeTimerBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeTimerBaseViewController.swift; sourceTree = "<group>"; };
 		FD55033A22856ADE0036AC3F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FD55033C22856AF70036AC3F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FD55033E22856FA10036AC3F /* BaseStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseStatsViewController.swift; sourceTree = "<group>"; };
@@ -57,11 +58,12 @@
 		FD55D1E8228BE9D900297294 /* SignUpPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPageViewController.swift; sourceTree = "<group>"; };
 		FD55D1EA228BF80800297294 /* BaseOnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseOnboardViewController.swift; sourceTree = "<group>"; };
 		FD55D1EC228BFE1E00297294 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
-		FD55D1EF228C2DFE00297294 /* CubeTimerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CubeTimerButton.swift; path = CubeTimer/Timer/CubeTimerButton.swift; sourceTree = SOURCE_ROOT; };
+		FD55D1EF228C2DFE00297294 /* CubeTimerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CubeTimerButton.swift; path = CubeTimer/Base/CubeTimerButton.swift; sourceTree = SOURCE_ROOT; };
 		FD56C8132248AEF900F291DB /* SolutionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolutionData.swift; sourceTree = "<group>"; };
 		FD5910A7228BE74B0075944C /* Onboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboard.storyboard; sourceTree = "<group>"; };
 		FD5910A9228BE83B0075944C /* OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
 		FD76277922525293003B5F60 /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
+		FD7DB32F2294136800D0AEE2 /* AverageCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AverageCalculator.swift; sourceTree = "<group>"; };
 		FDD5B0292292F325002B5372 /* LineChartValueFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartValueFormatter.swift; sourceTree = "<group>"; };
 		FDD5B02B2293D44B002B5372 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		FDE913DF2242253800592E3C /* CubeTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CubeTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,7 +112,6 @@
 			children = (
 				FD56C8132248AEF900F291DB /* SolutionData.swift */,
 				FD55D1EC228BFE1E00297294 /* UserData.swift */,
-				FD55D1EF228C2DFE00297294 /* CubeTimerButton.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -122,15 +123,47 @@
 				FD55D1E6228BE9BD00297294 /* LoginPageViewController.swift */,
 				FD55D1E8228BE9D900297294 /* SignUpPageViewController.swift */,
 				FD55D1EA228BF80800297294 /* BaseOnboardViewController.swift */,
-				FD00A098228ED21B00E722FC /* AuthManager.swift */,
 			);
 			path = Onboard;
+			sourceTree = "<group>";
+		};
+		FD7DB3312294136F00D0AEE2 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FDD5B0292292F325002B5372 /* LineChartValueFormatter.swift */,
+				FDE913F7224226D400592E3C /* AlgorithmGenerator.swift */,
+				FD00A098228ED21B00E722FC /* AuthManager.swift */,
+				FD55033422854FD00036AC3F /* TimeConverter.swift */,
+				FD7DB32F2294136800D0AEE2 /* AverageCalculator.swift */,
+				FDD5B02B2293D44B002B5372 /* Reachability.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		FD7DB3322294172300D0AEE2 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				FD55033822856A5F0036AC3F /* CubeTimerBaseViewController.swift */,
+				FDF0DF562289ACCB00AABEAA /* CubeTimerEnums.swift */,
+				FDF0DF582289ADF500AABEAA /* CubeTimerLabelExtension.swift */,
+				FD55D1EF228C2DFE00297294 /* CubeTimerButton.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		FD7DB33322942A7800D0AEE2 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				FDE913EE2242253A00592E3C /* LaunchScreen.storyboard */,
+				FD5910A7228BE74B0075944C /* Onboard.storyboard */,
+				FDE913E62242253800592E3C /* Main.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		FDB733EF224522EC003667AC /* Timer */ = {
 			isa = PBXGroup;
 			children = (
-				FDE913F7224226D400592E3C /* AlgorithmGenerator.swift */,
 				FD28A36E22844D3000832A1D /* TimerViewController.swift */,
 			);
 			path = Timer;
@@ -159,7 +192,6 @@
 				FD55033622855C420036AC3F /* StatTableViewCell.swift */,
 				FD55033E22856FA10036AC3F /* BaseStatsViewController.swift */,
 				FD550340228570EB0036AC3F /* ChartsViewController.swift */,
-				FDD5B0292292F325002B5372 /* LineChartValueFormatter.swift */,
 			);
 			path = Stats;
 			sourceTree = "<group>";
@@ -190,20 +222,15 @@
 				FDE913E92242253800592E3C /* CubeTimer.xcdatamodeld */,
 				FDE913F12242253A00592E3C /* Info.plist */,
 				FD55034422858DA00036AC3F /* GoogleService-Info.plist */,
-				FDE913EE2242253A00592E3C /* LaunchScreen.storyboard */,
-				FD5910A7228BE74B0075944C /* Onboard.storyboard */,
-				FDE913E62242253800592E3C /* Main.storyboard */,
+				FD7DB33322942A7800D0AEE2 /* Storyboards */,
 				FDB733F22245231B003667AC /* Stats */,
 				FDB733F0224522F7003667AC /* Profile */,
 				FDB733F1224522FF003667AC /* Settings */,
 				FDB733EF224522EC003667AC /* Timer */,
 				FD55D1EE228BFE2900297294 /* Models */,
 				FD5910AB228BE84C0075944C /* Onboard */,
-				FD55033422854FD00036AC3F /* TimeConverter.swift */,
-				FD55033822856A5F0036AC3F /* CubeTimerBaseViewController.swift */,
-				FDF0DF562289ACCB00AABEAA /* CubeTimerEnums.swift */,
-				FDF0DF582289ADF500AABEAA /* CubeTimerLabelExtension.swift */,
-				FDD5B02B2293D44B002B5372 /* Reachability.swift */,
+				FD7DB3312294136F00D0AEE2 /* Helpers */,
+				FD7DB3322294172300D0AEE2 /* Base */,
 			);
 			path = CubeTimer;
 			sourceTree = "<group>";
@@ -358,6 +385,7 @@
 				FDD5B02A2292F325002B5372 /* LineChartValueFormatter.swift in Sources */,
 				FD76277A22525293003B5F60 /* StatsViewController.swift in Sources */,
 				FDF0DF572289ACCB00AABEAA /* CubeTimerEnums.swift in Sources */,
+				FD7DB3302294136800D0AEE2 /* AverageCalculator.swift in Sources */,
 				FD55033D22856AF70036AC3F /* ProfileViewController.swift in Sources */,
 				FD55033522854FD00036AC3F /* TimeConverter.swift in Sources */,
 				FDD5B02C2293D44B002B5372 /* Reachability.swift in Sources */,

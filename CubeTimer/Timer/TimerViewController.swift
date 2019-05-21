@@ -12,28 +12,42 @@ import Firebase
 
 class TimerViewController: CubeTimerBaseViewController {
 
+    let defaults = UserDefaults.standard
     var colRef: CollectionReference!
     
     @IBOutlet weak var scrambleLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var avgOf5Label: UILabel!
+    @IBOutlet weak var avgOf12Label: UILabel!
     
     var timer = Timer()
     var startTime = TimeInterval()
-    var avg5 = 0.0
-    var avg12 = 0.0
+    
+    var best = 0.0
+    var bestAvg5 = 0.0
+    var bestAvg12 = 0.0
+    
     var isTimeRunning = false
     var strMinutes = ""
     var strSeconds = ""
     var strFraction = ""
     var prevAlg = ""
+    var durations = [Double]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addLongPressGesture(view: self.view)
         self.addTapGestureRecognizer(view: self.view)
+        self.avgOf5Label.isHidden = true
+        self.avgOf12Label.isHidden = true
+        self.best = defaults.double(forKey: "best")
+        self.bestAvg5 = defaults.double(forKey: "bestAvg5")
+        self.bestAvg12 = defaults.double(forKey: "bestAvg12")
         self.scrambleLabel.text = AlgorithmGenerator.generateAlg()
         let path = "Solution/\(AuthManager.shared.getUID())/Sessions/session\(session)/solution"
         self.colRef = Firestore.firestore().collection(path)
+        print(AuthManager.shared.getName())
+
     }
   
     override func viewDidAppear(_ animated: Bool) {
@@ -120,6 +134,10 @@ class TimerViewController: CubeTimerBaseViewController {
         let created =  NSDate.timeIntervalSinceReferenceDate
         let data = SolutionData(algorithm: scramble, duration: duration, created: created, session: session, showAlgorithm: false)
         
+        if duration < self.best {
+            defaults.set(duration, forKey: "best")
+        }
+        
         if self.reachability!.connection == .none {
             self.saveData(data: data)
         } else {
@@ -127,11 +145,55 @@ class TimerViewController: CubeTimerBaseViewController {
         }
         
         isTimeRunning = false
+        getLastDurations()
     }
     
     func initUI() {
         self.scrambleLabel.initLabel(with: self.theme)
         self.timerLabel.initLabel(with: self.theme)
+        self.avgOf5Label.initLabel(with: self.theme)
+        self.avgOf12Label.initLabel(with: self.theme)
+    }
+    
+    func getLastDurations() {
+        if self.reachability!.connection != .none {
+            fetchDataFromDB(limit: 12) {
+                self.printAverages()
+            }
+        } else {
+            fetchData(limit: 12) {
+                self.printAverages()
+            }
+        }
+    }
+    
+    func printAverages() {
+        
+        if self.durations.count < 5 {
+            return
+        } else {
+            
+            let last5 = Array(self.durations.dropLast(self.durations.count - 5))
+            let avg = AverageCalculator.shared.getAvgOf(durations: last5)
+            let str = TimeConverter.shared.durationToStr(avg)
+            self.avgOf5Label.text = "Average of 5 : \(str)"
+            self.avgOf5Label.isHidden = false
+            
+            if avg < self.bestAvg5 {
+                defaults.set(avg, forKey: "bestAvg5")
+            }
+            
+            if durations.count >= 12 {
+                let avg = AverageCalculator.shared.getAvgOf(durations: self.durations)
+                let str = TimeConverter.shared.durationToStr(avg)
+                self.avgOf12Label.text = "Average of 12 : \(str)"
+                self.avgOf12Label.isHidden = false
+                
+                if avg < self.bestAvg12 {
+                    defaults.set(avg, forKey: "bestAvg12")
+                }
+            }
+        }
     }
 }
 
@@ -163,4 +225,47 @@ extension TimerViewController {
         }
         print("successfully saved data to db")
     }
+    
+    func fetchDataFromDB(limit: Int, _ completion: @escaping () -> ()) {
+        
+        let query = colRef.order(by: "created", descending: true)
+        query.limit(to: limit)
+        query.addSnapshotListener() {
+            (query, err) in
+            if err != nil {
+                print("An error has occured! data couldn't fetch from db")
+            } else {
+                self.durations.removeAll()
+                for sol in query!.documents {
+                    let data = sol.data()
+                    let duration = data["duration"] as? Double ?? 0.0
+                    self.durations.append(duration)
+                }
+                completion()
+                print("successfully fetch from DB")
+                
+            }
+        }
+    }
+    
+    func fetchData(limit: Int, _ completion: @escaping () -> () ) {
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        let context = delegate.persistentContainer.viewContext
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Record")
+        request.returnsObjectsAsFaults = false
+        request.fetchLimit = limit
+        do {
+            let results = try context.fetch(request)
+            for result in results as! [NSManagedObject] {
+                let duration = result.value(forKey: "duration") as! Double
+                durations.append(duration)
+            }
+            print("successfully fetch data from core")
+            completion()
+        } catch {
+            print("failed to fetch data from core")
+        }
+    }
+    
 }

@@ -13,7 +13,7 @@ class CubeTimerBaseViewController: UIViewController {
     var toSaveDB = true
     var theme = Theme.dark
     var session = 0
-    
+    var created = 0
     //Reachability Variables..
     var reachability: Reachability?
     let hostNames = [nil, "google.com", "invalidhost"]
@@ -32,6 +32,7 @@ class CubeTimerBaseViewController: UIViewController {
         super.viewDidAppear(animated)
         toSaveDB = UserDefaults.standard.bool(forKey: "toSaveDb")
         session = UserDefaults.standard.integer(forKey: "session")
+        created = UserDefaults.standard.integer(forKey: "created")
         let isDark = UserDefaults.standard.bool(forKey: "theme")
         self.theme = isDark ? .dark : .light
         self.view!.backgroundColor = initBackgroundColor()
@@ -79,7 +80,6 @@ extension CubeTimerBaseViewController {
     }
     
     func startNotifier() {
-        print("--- start notifier")
         do {
             try reachability?.startNotifier()
         } catch {
@@ -88,7 +88,6 @@ extension CubeTimerBaseViewController {
     }
     
     func stopNotifier() {
-        print("--- stop notifier")
         reachability?.stopNotifier()
         NotificationCenter.default.removeObserver(self, name: .reachabilityChanged, object: nil)
         reachability = nil

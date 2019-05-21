@@ -16,20 +16,25 @@ class ProfileViewController: CubeTimerBaseViewController {
     @IBOutlet weak var selectSessionButton: CubeTimerButton!
     @IBOutlet weak var logOutButton: CubeTimerButton!
     
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var singleBestLabel: UILabel!
     @IBOutlet weak var bestAvgLabel: UILabel!
     @IBOutlet weak var bestAvg12Label: UILabel!
     @IBOutlet weak var totalAvgLabel: UILabel!
     @IBOutlet weak var bestSessionLabel: UILabel!
     
+    let defaults = UserDefaults.standard
+    
     var db = Firestore.firestore()
     var colRef: CollectionReference!
     var data: Profile!
-    
+    var hasInitProfile = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hasInitProfile = defaults.bool(forKey: "hasInitProfile")
+        if !hasInitProfile {
+            initProfileData()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -64,15 +69,25 @@ class ProfileViewController: CubeTimerBaseViewController {
             let profile = docSnap.data()!
             let name = profile["name"] as? String ?? "no name"
             let surname = profile["surname"] as? String ?? "no name"
-            let bestOfFive = profile["bestOfFive"] as? Double ?? 0.0
-            let bestOfTwelve = profile["bestOfTwelve"] as? Double ?? 0.0
-            let totalAvg = profile["totalAvg"] as? Double ?? 0.0
+            let bestOfFive = profile["bestAvg5"] as? Double ?? 0.0
+            let bestOfTwelve = profile["bestAvg12"] as? Double ?? 0.0
+            let totalAvg = profile["sessionAvg"] as? Double ?? 0.0
             let bestSession = profile["bestSession"] as? Int ?? 0
             let createdSession = profile["createdSession"] as? Int ?? 0
             
             self.data = Profile(name: name, surname: surname, createdSessions: createdSession, bestSession: bestSession, totalAvg: totalAvg, bestOfFive: bestOfFive, bestOfTwelve: bestOfTwelve)
         }
+    }
+    
+    func initProfileData() {
+        defaults.set(true, forKey: "hasInitProfile")
         
+        let best = defaults.double(forKey: "best")
+        let best5 = defaults.double(forKey: "bestAvg5")
+        let best12 = defaults.double(forKey: "bestAvg12")
+        
+//        let data: [String: Any] = ["best": best, "best5": best5, "best12": best12, "totalAvg": 0, ]
+        //TO DO..
     }
 
     @IBAction func logoutAction(_ sender: Any) {
@@ -86,6 +101,11 @@ class ProfileViewController: CubeTimerBaseViewController {
         } catch {
             print("An error has occured!...")
         }
+    }
+    
+    @IBAction func createNewSession(_ sender: CubeTimerButton) {
+        self.session += 1
+        defaults.set(session, forKey: "session")
     }
     
 }
