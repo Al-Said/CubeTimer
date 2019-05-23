@@ -37,25 +37,39 @@ class UpdateProfile {
             let userDocument: DocumentSnapshot!
             let sessionDocument: DocumentSnapshot!
             
-            //step 1
-            transaction.setData(solutionData, forDocument: solutionRef)
-            
             do {
                 try userDocument = transaction.getDocument(userDocRef)
             } catch  {
                 return nil
             }
-     
-            let totalSolves = userDocument.data()?["totalSolves"] as? Int ?? 0
-            
-            //step 2
-            transaction.updateData(["totalSolves": totalSolves+1], forDocument: userDocRef)
             
             do {
                 try sessionDocument = transaction.getDocument(sessionRef)
             } catch {
                 return nil
             }
+            
+            //Step 8
+            let bestSession = userDocument.data()?["bestSession"] as? Int ?? 1
+            let bestSessionRef = userDocRef.collection("sessions").document("session\(bestSession)")
+            
+            let bestSessionDocument: DocumentSnapshot!
+            
+            do {
+                try bestSessionDocument = transaction.getDocument(bestSessionRef)
+            } catch {
+                return nil
+            }
+            
+            let totalSolves = userDocument.data()?["totalSolves"] as? Int ?? 0
+            
+            //step 1
+            transaction.setData(solutionData, forDocument: solutionRef)
+            
+            //step 2
+            transaction.updateData(["totalSolves": totalSolves+1], forDocument: userDocRef)
+
+            
             //step 3
             let sessionSolves = sessionDocument.data()?["sessionSolves"] as? Int ?? 0
             transaction.updateData(["sessionSolves": sessionSolves+1], forDocument: sessionRef)
@@ -76,17 +90,10 @@ class UpdateProfile {
             
             transaction.updateData(["totalAvg": newTotalAvg], forDocument: userDocRef)
             transaction.updateData(["sessionAvg": newSessionAvg], forDocument: sessionRef)
-            
-            //Step 8
-            let bestSession = userDocument.data()?["bestSession"] as? Int ?? 1
-            let bestSessionRef = userDocRef.collection("sessions").document("session\(bestSession)")
-            
-            let bestSessionDocument: DocumentSnapshot!
-            
-            do {
-                try bestSessionDocument = transaction.getDocument(bestSessionRef)
-            } catch {
-                return nil
+            //Step 9
+            let pb = userDocument.data()?["pb"] as? Double ?? 0.0
+            if solution.duration < pb || pb == 0 {
+                transaction.updateData(["pb" : solution.duration], forDocument: userDocRef)
             }
             
             let bestSessionAvg = bestSessionDocument.data()?["sessionAvg"] as? Double ?? 0.0
@@ -95,19 +102,39 @@ class UpdateProfile {
                 transaction.setData(["bestSession": session], forDocument: userDocRef)
             }
             
-            
-            //Step 9
-            let pb = userDocument.data()?["pb"] as? Double ?? 0.0
-            if solution.duration < pb || pb == 0 {
-                transaction.updateData(["pb" : solution.duration], forDocument: userDocRef)
-            }
-            
+        
             //Step 10-11-12
         
-            let best5 = userDocument.data()?["bestAvg5"] as? Double ?? 0.0
-            let best12 = userDocument.data()?["bestAvg12"] as? Double ?? 0.0
-            let best100 = userDocument.data()?["bestAvg100"] as? Double ?? 0.0
+            let best5 = userDocument.data()?["bestAvg5"] as? Double ?? -1.0
+            let best12 = userDocument.data()?["bestAvg12"] as? Double ?? -1.0
+            let best100 = userDocument.data()?["bestAvg100"] as? Double ?? -1.0
+            var last100 = sessionDocument.data()?["current100"] as? [Double] ?? [0.0]
+            last100.append(solution.duration)
             
+            if last100.count > 100 {
+                last100 = Array(last100.dropFirst())
+                let last100avg = AverageCalculator.shared.getAvgOf(durations: last100)
+                if last100avg < best100 || best100 < 0.0 {
+                    transaction.updateData(["bestAvg100" : last100avg], forDocument: userDocRef)
+                }
+            }
+            
+            if last100.count >= 12 {
+                let last12avg = AverageCalculator.shared.getAvgOf(durations: Array(last100.dropFirst(last100.count - 12)))
+                if last12avg < best12 || best12 < 0.0 {
+                    transaction.updateData(["bestAvg12": last12avg], forDocument: userDocRef)
+                }
+            }
+            
+            if last100.count >= 5 {
+                
+                let last5avg = AverageCalculator.shared.getAvgOf(durations: Array(last100.dropFirst(last100.count - 5)))
+                if last5avg < best5 || best5 < 0.0 {
+                    transaction.updateData(["bestAvg5": last5avg], forDocument: userDocRef)
+                }
+            }
+            
+            transaction.setData(["current100": last100], forDocument: sessionRef)
             
             return true
         })) { (object, error) in

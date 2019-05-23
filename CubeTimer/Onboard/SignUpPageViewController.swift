@@ -22,6 +22,7 @@ class SignUpPageViewController: BaseOnboardViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUI()
+        
     }
 
     func setUI() {
@@ -31,10 +32,6 @@ class SignUpPageViewController: BaseOnboardViewController {
         self.emailTextField.placeholder = "E-mail"
         self.passwordTextField.placeholder = "Password"
         self.confirmationTextField.placeholder = "Confirm Password"
-        
-        self.nameTextField.textContentType = .givenName
-        self.emailTextField.textContentType = .emailAddress
-        self.emailTextField.keyboardType = .emailAddress
         
         self.passwordTextField.keyboardType = .default
         self.confirmationTextField.keyboardType = .default
