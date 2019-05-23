@@ -30,9 +30,7 @@ class CubeTimerBaseViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        toSaveDB = UserDefaults.standard.bool(forKey: "toSaveDb")
-        session = UserDefaults.standard.integer(forKey: "session")
-        created = UserDefaults.standard.integer(forKey: "created")
+
         let isDark = UserDefaults.standard.bool(forKey: "theme")
         self.theme = isDark ? .dark : .light
         self.view!.backgroundColor = initBackgroundColor()
@@ -46,6 +44,14 @@ class CubeTimerBaseViewController: UIViewController {
         case .light:
             return .white
         }
+    }
+    
+    public func showInfoPopup(message: String) {
+        let alert = UIAlertController(title: NSLocalizedString("Info", comment: ""), message: message, preferredStyle: .alert)
+        
+        let done = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil)
+        alert.addAction(done)
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
@@ -98,9 +104,9 @@ extension CubeTimerBaseViewController {
         let reachability = note.object as! Reachability
         
         if reachability.connection != .none {
-            print("connected to internet")
+            //connected to internet
         } else {
-            print("no connection")
+            //no connection
         }
     }
 }

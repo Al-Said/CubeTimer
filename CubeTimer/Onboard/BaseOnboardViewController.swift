@@ -65,7 +65,6 @@ class BaseOnboardViewController: UIViewController {
         
         let done = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil)
         alert.addAction(done)
-        
         self.present(alert, animated: true, completion: nil)
     }
     

@@ -189,39 +189,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save to Database" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k9b-j3-eef">
-                                <rect key="frame" x="16" y="70" width="224" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="1ih-L8-Xpf"/>
-                                    <constraint firstAttribute="width" secondItem="k9b-j3-eef" secondAttribute="height" multiplier="28:5" id="Xi5-Bp-SIT"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OGm-zg-yp9">
-                                <rect key="frame" x="256" y="75" width="49" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="wZp-Ie-GpH"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="saveToDatabaseAction:" destination="yap-te-hLj" eventType="valueChanged" id="Trx-QQ-jCD"/>
-                                </connections>
-                            </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dark Theme" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6bS-7r-K9f">
-                                <rect key="frame" x="16" y="126" width="224" height="40"/>
+                                <rect key="frame" x="16" y="36" width="224" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="rYB-RQ-f6K"/>
-                                    <constraint firstAttribute="width" secondItem="6bS-7r-K9f" secondAttribute="height" multiplier="28:5" id="spJ-Td-ImL"/>
+                                    <constraint firstAttribute="height" constant="40" id="B8b-RM-BKa"/>
+                                    <constraint firstAttribute="width" secondItem="6bS-7r-K9f" secondAttribute="height" multiplier="28:5" id="baH-5E-alb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tGm-la-KVe">
-                                <rect key="frame" x="256" y="126" width="50" height="31"/>
+                                <rect key="frame" x="255" y="41" width="51" height="31"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="TK3-Sf-Q4t"/>
+                                    <constraint firstAttribute="height" constant="31" id="RGs-ne-ytL"/>
                                 </constraints>
                                 <connections>
                                     <action selector="changeThemeAction:" destination="yap-te-hLj" eventType="valueChanged" id="RKq-Q7-5t2"/>
@@ -230,24 +211,16 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="tGm-la-KVe" firstAttribute="top" secondItem="OGm-zg-yp9" secondAttribute="bottom" constant="20" id="EJ7-LE-XEp"/>
-                            <constraint firstItem="6bS-7r-K9f" firstAttribute="leading" secondItem="4JU-7H-ARQ" secondAttribute="leading" constant="16" id="FqD-b0-pxh"/>
-                            <constraint firstItem="k9b-j3-eef" firstAttribute="top" secondItem="4JU-7H-ARQ" secondAttribute="top" constant="50" id="FqW-Ca-ybR"/>
-                            <constraint firstItem="tGm-la-KVe" firstAttribute="leading" secondItem="6bS-7r-K9f" secondAttribute="trailing" constant="16" id="I1f-ib-9kF"/>
-                            <constraint firstItem="k9b-j3-eef" firstAttribute="leading" secondItem="4JU-7H-ARQ" secondAttribute="leading" constant="16" id="K8m-wF-jHA"/>
-                            <constraint firstItem="4JU-7H-ARQ" firstAttribute="trailing" secondItem="OGm-zg-yp9" secondAttribute="trailing" constant="17" id="N9H-Dp-NOk"/>
-                            <constraint firstItem="4JU-7H-ARQ" firstAttribute="trailing" secondItem="tGm-la-KVe" secondAttribute="trailing" constant="16" id="SF4-Je-0oJ"/>
-                            <constraint firstItem="6bS-7r-K9f" firstAttribute="top" secondItem="k9b-j3-eef" secondAttribute="bottom" constant="16" id="XdN-6g-OP1"/>
-                            <constraint firstItem="tGm-la-KVe" firstAttribute="top" secondItem="OGm-zg-yp9" secondAttribute="bottom" constant="20" id="dzu-gd-Vzk"/>
-                            <constraint firstItem="OGm-zg-yp9" firstAttribute="leading" secondItem="k9b-j3-eef" secondAttribute="trailing" constant="16" id="fZB-yK-ln0"/>
-                            <constraint firstItem="OGm-zg-yp9" firstAttribute="top" secondItem="4JU-7H-ARQ" secondAttribute="top" constant="55" id="rHN-rh-SbQ"/>
+                            <constraint firstItem="tGm-la-KVe" firstAttribute="top" secondItem="4JU-7H-ARQ" secondAttribute="top" constant="21" id="6sO-lL-pxQ"/>
+                            <constraint firstItem="6bS-7r-K9f" firstAttribute="leading" secondItem="4JU-7H-ARQ" secondAttribute="leading" constant="16" id="8Gm-uA-1rG"/>
+                            <constraint firstItem="6bS-7r-K9f" firstAttribute="top" secondItem="4JU-7H-ARQ" secondAttribute="top" constant="16" id="IvZ-MJ-QQz"/>
+                            <constraint firstItem="tGm-la-KVe" firstAttribute="leading" secondItem="6bS-7r-K9f" secondAttribute="trailing" constant="15" id="LfM-Bg-I6D"/>
+                            <constraint firstItem="4JU-7H-ARQ" firstAttribute="trailing" secondItem="tGm-la-KVe" secondAttribute="trailing" constant="16" id="rd8-eq-0BN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4JU-7H-ARQ"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="settings" id="zOP-5u-Pse"/>
                     <connections>
-                        <outlet property="dbSwitch" destination="OGm-zg-yp9" id="EnP-n5-eDW"/>
-                        <outlet property="saveToDbLabel" destination="k9b-j3-eef" id="Sxp-xy-tOB"/>
                         <outlet property="themeLabel" destination="6bS-7r-K9f" id="Wds-1u-LYl"/>
                         <outlet property="themeSwitch" destination="tGm-la-KVe" id="seQ-g8-iBI"/>
                     </connections>
@@ -270,69 +243,6 @@
                                     <constraint firstAttribute="height" constant="40" id="lNm-Qr-iT1"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Single Best :" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ifx-tX-HcQ">
-                                <rect key="frame" x="16" y="152" width="130" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="12"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Best Average of 5 :" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0G2-Zs-iIM">
-                                <rect key="frame" x="16" y="190" width="130" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="12"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Best Average of 12 :" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sxc-UH-nNb">
-                                <rect key="frame" x="16" y="228" width="130" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="12"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total Average :" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hxa-sZ-lsV">
-                                <rect key="frame" x="16" y="266" width="130" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="12"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Best Session :" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iby-bD-FMX">
-                                <rect key="frame" x="16" y="304" width="130" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="12"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="19.267" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LW8-lC-cSj">
-                                <rect key="frame" x="154" y="152" width="150" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="12"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="22.354" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="70B-pb-HR2">
-                                <rect key="frame" x="154" y="190" width="150" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="12"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="25.656" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XHl-aw-0mV">
-                                <rect key="frame" x="154" y="228" width="150" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="12"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="28.876" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vhc-04-ev3">
-                                <rect key="frame" x="154" y="266" width="150" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -369,13 +279,6 @@
                                     <action selector="logoutAction:" destination="5OG-52-dQg" eventType="touchUpInside" id="Mia-9t-HiD"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Session 8" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J0I-LN-BxU">
-                                <rect key="frame" x="154" y="304" width="150" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="12"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -393,14 +296,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="profile" id="oJ0-Dh-gOE"/>
                     <connections>
-                        <outlet property="bestAvg12Label" destination="XHl-aw-0mV" id="med-Yc-ucB"/>
-                        <outlet property="bestAvgLabel" destination="70B-pb-HR2" id="El9-dZ-BhM"/>
-                        <outlet property="bestSessionLabel" destination="J0I-LN-BxU" id="uZi-XS-uN9"/>
                         <outlet property="logOutButton" destination="lxH-DN-3X6" id="2LE-ye-gLY"/>
                         <outlet property="newSessionButton" destination="biB-7M-0m4" id="Anj-2w-nFR"/>
                         <outlet property="selectSessionButton" destination="aus-1k-wHO" id="h01-ER-AcJ"/>
-                        <outlet property="singleBestLabel" destination="LW8-lC-cSj" id="r7P-iJ-eGc"/>
-                        <outlet property="totalAvgLabel" destination="Vhc-04-ev3" id="GQV-aJ-F43"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z36-JX-oQf" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import Firebase
 
 class SignUpPageViewController: BaseOnboardViewController {
 
@@ -107,16 +108,34 @@ class SignUpPageViewController: BaseOnboardViewController {
         let name  = self.nameTextField.text!.split(separator: " ")
         let email = self.emailTextField.text!
         let pass  = self.passwordTextField.text!
-        let user = User(name: String(name[0]), surname: String(name[1]), email: email, password: pass)
+        let user =  UserProfile(name: String(name[0]), surname: String(name[1]), email: email, created: NSDate.timeIntervalSinceReferenceDate, createdSessions: 1, bestSession: 1, totalAvg: 0.0, pb: -1.0, bestAvg5: -1.0, bestAvg12: -1.0, bestAvg100: -1.0, totalDuration: 0.0, totalSolves: 0.0)
         
         print(user)
         
         Auth.auth().createUser(withEmail: user.email
-        , password: user.password) { (usr, err) in
+        , password: pass) { (usr, err) in
             
             if err == nil && usr != nil {
                 self.spinner.stopAnimating()
                 print("User created")
+                let uid = usr!.user.uid
+                let userRef = Firestore.firestore().collection("Users").document(uid)
+        
+                let dataToSave: [String: Any] = [
+                "name": user.name,
+                "surname": user.surname,
+                "email": user.email,
+                "created": user.created,
+                "createdSessions": user.createdSessions,
+                "bestSession": user.bestSession,
+                "bestAvg5": user.bestAvg5,
+                "bestAvg12": user.bestAvg12,
+                "bestAvg100": user.bestAvg100,
+                "totalDuration": user.totalDuration,
+                "totalAvg": user.totalAvg,
+                "totalSolves": user.totalSolves]
+                
+                userRef.setData(dataToSave)
                 self.directMainPage()
             } else {
                 self.spinner.stopAnimating()

@@ -46,7 +46,6 @@ class TimerViewController: CubeTimerBaseViewController {
         self.scrambleLabel.text = AlgorithmGenerator.generateAlg()
         let path = "Solution/\(AuthManager.shared.getUID())/Sessions/session\(session)/solution"
         self.colRef = Firestore.firestore().collection(path)
-        print(AuthManager.shared.getName())
 
     }
   
@@ -134,18 +133,8 @@ class TimerViewController: CubeTimerBaseViewController {
         let created =  NSDate.timeIntervalSinceReferenceDate
         let data = SolutionData(algorithm: scramble, duration: duration, created: created, session: session, showAlgorithm: false)
         
-        if duration < self.best {
-            defaults.set(duration, forKey: "best")
-        }
-        
-        if self.reachability!.connection == .none {
-            self.saveData(data: data)
-        } else {
-            self.saveDataToDB(data: data)
-        }
-        
+        UpdateProfile.shared.addSolution(solution: data, session: 1)
         isTimeRunning = false
-        getLastDurations()
     }
     
     func initUI() {
@@ -221,9 +210,12 @@ extension TimerViewController {
     func  saveDataToDB(data: SolutionData)  {
         let dataToSave : [String: Any] = ["algorithm" : data.algorithm, "created" : data.created, "session" : data.session, "duration": data.duration]
         colRef.addDocument(data: dataToSave) { (error) in
-            print("failed to save data to db")
+            if error != nil {
+                print("failed to save data to db")
+            } else {
+                print("successfully saved data to db")
+            }
         }
-        print("successfully saved data to db")
     }
     
     func fetchDataFromDB(limit: Int, _ completion: @escaping () -> ()) {

@@ -19,6 +19,10 @@ class LineChartValueFormatter: NSObject, IAxisValueFormatter {
     }
     
     func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+        
+        if self.valueArray.count == 0 {
+            return ""
+        }
         if value < 0.0 {
             return valueArray[0]
         }
