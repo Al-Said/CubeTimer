@@ -131,8 +131,11 @@ class SignUpPageViewController: BaseOnboardViewController {
                 "totalDuration": user.totalDuration,
                 "totalAvg": user.totalAvg,
                 "totalSolves": user.totalSolves]
-                
                 userRef.setData(dataToSave)
+                let sessionRef = userRef.collection("sessions").document("session1")
+                
+                let sessionData: [String: Any] = ["sessionDurations": 0.0, "sessionAvg": 0.0, "sessionSolves": 0, "current100": []]
+                sessionRef.setData(sessionData)
                 self.directMainPage()
             } else {
                 self.spinner.stopAnimating()

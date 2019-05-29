@@ -12,7 +12,7 @@ class CubeTimerBaseViewController: UIViewController {
 
     var toSaveDB = true
     var theme = Theme.dark
-    var session = 0
+    var session = 1
     var created = 0
     //Reachability Variables..
     var reachability: Reachability?

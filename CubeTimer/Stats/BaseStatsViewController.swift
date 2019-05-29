@@ -20,7 +20,7 @@ class BaseStatsViewController: CubeTimerBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let path = "Solution/\(AuthManager.shared.getUID())/Sessions/session\(session)/solution"
+        let path = "Users/\(AuthManager.shared.getUID())/sessions/session\(session + 1)/solutions"
         self.colRef = Firestore.firestore().collection(path)
     }
     

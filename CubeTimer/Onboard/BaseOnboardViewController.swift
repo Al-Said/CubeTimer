@@ -10,7 +10,6 @@ import UIKit
 
 class BaseOnboardViewController: UIViewController {
 
-    var keyboardHeight: CGFloat = 0.0
     //                     UpperCase LowerCase  OneDigit     6-15 Length
     let passwordRegex = "^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{6,15}$"
     //                1orMoreChars + @ sign + 1orMoreChars + . + 2or3 chars
@@ -33,13 +32,9 @@ class BaseOnboardViewController: UIViewController {
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y == 0 {
-                if keyboardHeight == 0.0 {
-                    keyboardHeight = keyboardSize.height
-                }
-                self.view.frame.origin.y -= keyboardHeight
-            }
+        
+        if self.view.frame.origin.y == 0 {
+            self.view.frame.origin.y -= 200.0
         }
     }
     

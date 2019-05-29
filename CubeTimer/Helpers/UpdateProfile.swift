@@ -99,7 +99,7 @@ class UpdateProfile {
             let bestSessionAvg = bestSessionDocument.data()?["sessionAvg"] as? Double ?? 0.0
             
             if newSessionAvg < bestSessionAvg {
-                transaction.setData(["bestSession": session], forDocument: userDocRef)
+                transaction.updateData(["bestSession": session], forDocument: userDocRef)
             }
             
         
@@ -134,7 +134,7 @@ class UpdateProfile {
                 }
             }
             
-            transaction.setData(["current100": last100], forDocument: sessionRef)
+            transaction.updateData(["current100": last100], forDocument: sessionRef)
             
             return true
         })) { (object, error) in
