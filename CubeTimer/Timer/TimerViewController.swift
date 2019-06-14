@@ -40,11 +40,9 @@ class TimerViewController: CubeTimerBaseViewController {
         self.addTapGestureRecognizer(view: self.view)
         self.avgOf5Label.isHidden = true
         self.avgOf12Label.isHidden = true
-        self.best = defaults.double(forKey: "best")
-        self.bestAvg5 = defaults.double(forKey: "bestAvg5")
-        self.bestAvg12 = defaults.double(forKey: "bestAvg12")
+
         self.scrambleLabel.text = AlgorithmGenerator.generateAlg()
-        let path = "Solution/\(AuthManager.shared.getUID())/Sessions/session\(session)/solution"
+        let path = "Solution/\(AuthManager.shared.getUID())/sessions/session\(session)/solutions"
         self.colRef = Firestore.firestore().collection(path)
 
     }
@@ -128,13 +126,13 @@ class TimerViewController: CubeTimerBaseViewController {
         
         timer.invalidate()
         let scramble = self.prevAlg
-        let session = 0
         let duration = TimeConverter.shared.strToDuration(self.timerLabel.text!)
         let created =  NSDate.timeIntervalSinceReferenceDate
-        let data = SolutionData(algorithm: scramble, duration: duration, created: created, session: session, showAlgorithm: false)
+        let data = SolutionData(algorithm: scramble, duration: duration, created: created, session: self.session, showAlgorithm: false)
         
-        UpdateProfile.shared.addSolution(solution: data, session: 1)
+        UpdateProfile.shared.addSolution(solution: data, session: self.session)
         isTimeRunning = false
+        getLastDurations()
     }
     
     func initUI() {
@@ -147,10 +145,6 @@ class TimerViewController: CubeTimerBaseViewController {
     func getLastDurations() {
         if self.reachability!.connection != .none {
             fetchDataFromDB(limit: 12) {
-                self.printAverages()
-            }
-        } else {
-            fetchData(limit: 12) {
                 self.printAverages()
             }
         }
@@ -167,20 +161,13 @@ class TimerViewController: CubeTimerBaseViewController {
             let str = TimeConverter.shared.durationToStr(avg)
             self.avgOf5Label.text = "Average of 5 : \(str)"
             self.avgOf5Label.isHidden = false
-            
-            if avg < self.bestAvg5 {
-                defaults.set(avg, forKey: "bestAvg5")
-            }
+
             
             if durations.count >= 12 {
                 let avg = AverageCalculator.shared.getAvgOf(durations: self.durations)
                 let str = TimeConverter.shared.durationToStr(avg)
                 self.avgOf12Label.text = "Average of 12 : \(str)"
                 self.avgOf12Label.isHidden = false
-                
-                if avg < self.bestAvg12 {
-                    defaults.set(avg, forKey: "bestAvg12")
-                }
             }
         }
     }

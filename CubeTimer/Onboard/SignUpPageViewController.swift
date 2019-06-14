@@ -113,7 +113,6 @@ class SignUpPageViewController: BaseOnboardViewController {
         , password: pass) { (usr, err) in
             
             if err == nil && usr != nil {
-                self.spinner.stopAnimating()
                 print("User created")
                 let uid = usr!.user.uid
                 let userRef = Firestore.firestore().collection("Users").document(uid)
@@ -136,6 +135,7 @@ class SignUpPageViewController: BaseOnboardViewController {
                 
                 let sessionData: [String: Any] = ["sessionDurations": 0.0, "sessionAvg": 0.0, "sessionSolves": 0, "current100": []]
                 sessionRef.setData(sessionData)
+                self.spinner.stopAnimating()
                 self.directMainPage()
             } else {
                 self.spinner.stopAnimating()

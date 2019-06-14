@@ -16,7 +16,6 @@ class ProfileViewController: CubeTimerBaseViewController {
     @IBOutlet weak var selectSessionButton: CubeTimerButton!
     @IBOutlet weak var logOutButton: CubeTimerButton!
     
-    
     @IBOutlet weak var nameSurnameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var pbLabel: UILabel!
@@ -27,6 +26,15 @@ class ProfileViewController: CubeTimerBaseViewController {
     @IBOutlet weak var bestSession: UILabel!
     @IBOutlet weak var createdLabel: UILabel!
     
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    
+    
+    var picker: UIPickerView {
+        let picker = UIPickerView()
+        picker.delegate = self
+        picker.dataSource = self
+        return picker
+    }
     
     var db = Firestore.firestore()
     var colRef: CollectionReference!
@@ -41,6 +49,7 @@ class ProfileViewController: CubeTimerBaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setUI()
+        self.spinner.startAnimating()
     }
     
     func setUI() {
@@ -96,6 +105,9 @@ class ProfileViewController: CubeTimerBaseViewController {
         self.best100Lavel.text = data.best100 != -1 ? "\(TimeConverter.shared.durationToStr(data.best100))" : "There is not enough recorded solution"
         self.bestSession.text = "\(data.bestSession)"
         self.createdLabel.text = "\(data.createdSession)"
+        
+        self.spinner.stopAnimating()
+        self.spinner.isHidden = true
     }
     
     @IBAction func logoutAction(_ sender: Any) {
@@ -112,10 +124,20 @@ class ProfileViewController: CubeTimerBaseViewController {
     }
     
     @IBAction func createNewSession(_ sender: CubeTimerButton) {
-        self.showInfoPopup(message: "New session is created!")
         self.session += 1
+        UserDefaults.standard.set(self.session, forKey: "session")
+        initNewSession()
+        self.showInfoPopup(message: "New session is created!")
     }
     
+    
+    func initNewSession() {
+        let uid = AuthManager.shared.getUID()
+        let userRef = Firestore.firestore().collection("Users").document(uid)
+        let sessionRef = userRef.collection("sessions").document("session\(self.session)")
+        let sessionData: [String: Any] = ["sessionDurations": 0.0, "sessionAvg": 0.0, "sessionSolves": 0, "current100": []]
+        sessionRef.setData(sessionData)
+    }
     
     struct LabelData {
         var name: String
@@ -129,4 +151,18 @@ class ProfileViewController: CubeTimerBaseViewController {
         var bestSession: Int
         var createdSession: Int
     }
+}
+
+
+extension ProfileViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 1
+    }
+    
+    
 }

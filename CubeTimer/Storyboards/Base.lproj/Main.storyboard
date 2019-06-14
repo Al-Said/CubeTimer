@@ -459,6 +459,9 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="TGJ-6m-tHU">
+                                <rect key="frame" x="150" y="249.5" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -481,6 +484,7 @@
                             <constraint firstItem="q2t-8n-EZa" firstAttribute="leading" secondItem="qxI-MC-Us2" secondAttribute="leading" constant="11" id="HHA-7n-KwX"/>
                             <constraint firstItem="tCm-c7-7Jg" firstAttribute="leading" secondItem="qxI-MC-Us2" secondAttribute="leading" constant="11" id="Hr0-pg-a7M"/>
                             <constraint firstItem="oV4-SV-fIl" firstAttribute="top" secondItem="gCg-Su-ihD" secondAttribute="bottom" constant="8" id="Hze-UV-b0B"/>
+                            <constraint firstItem="TGJ-6m-tHU" firstAttribute="centerY" secondItem="JDq-7y-JMw" secondAttribute="centerY" id="JUj-Dy-RW1"/>
                             <constraint firstItem="eOk-9o-p5D" firstAttribute="leading" secondItem="qxI-MC-Us2" secondAttribute="leading" constant="16" id="MuK-Aj-dGL"/>
                             <constraint firstItem="tCm-c7-7Jg" firstAttribute="top" secondItem="eOk-9o-p5D" secondAttribute="bottom" constant="8" id="Nut-0K-12T"/>
                             <constraint firstItem="o8d-Rb-Zl6" firstAttribute="leading" secondItem="qxI-MC-Us2" secondAttribute="leading" constant="11" id="P5N-Zc-Usk"/>
@@ -507,6 +511,7 @@
                             <constraint firstItem="M3Y-hP-Ifc" firstAttribute="leading" secondItem="qxI-MC-Us2" secondAttribute="leading" constant="11" id="yJs-Po-vB8"/>
                             <constraint firstItem="6jc-cg-YzZ" firstAttribute="leading" secondItem="qxI-MC-Us2" secondAttribute="leading" constant="11" id="z5d-Wt-1ez"/>
                             <constraint firstItem="gCg-Su-ihD" firstAttribute="top" secondItem="rKs-md-K8z" secondAttribute="bottom" constant="8" id="zXj-XE-pfr"/>
+                            <constraint firstItem="TGJ-6m-tHU" firstAttribute="centerX" secondItem="JDq-7y-JMw" secondAttribute="centerX" id="zq2-Tz-AVV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qxI-MC-Us2"/>
                     </view>
@@ -523,6 +528,7 @@
                         <outlet property="newSessionButton" destination="biB-7M-0m4" id="Anj-2w-nFR"/>
                         <outlet property="pbLabel" destination="Kxy-U8-DQ2" id="xCp-xD-WOd"/>
                         <outlet property="selectSessionButton" destination="aus-1k-wHO" id="h01-ER-AcJ"/>
+                        <outlet property="spinner" destination="TGJ-6m-tHU" id="QJg-jg-tsm"/>
                         <outlet property="totalAvgLabel" destination="rKs-md-K8z" id="eh2-tG-qS8"/>
                     </connections>
                 </viewController>

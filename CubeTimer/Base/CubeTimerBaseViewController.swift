@@ -25,12 +25,16 @@ class CubeTimerBaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.session = UserDefaults.standard.integer(forKey: "session")
+        if session == 0 {
+            UserDefaults.standard.set(1, forKey: "session")
+            self.session = 1
+        }
         self.startHost(at: 0)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
         let isDark = UserDefaults.standard.bool(forKey: "theme")
         self.theme = isDark ? .dark : .light
         self.view!.backgroundColor = initBackgroundColor()
